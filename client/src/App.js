@@ -1,5 +1,7 @@
+import WheeOfLifePage from "./pages/wheelOfLife";
+
 function App() {
-  return <div className="App"></div>;
+  return <WheeOfLifePage />;
 }
 
 export default App;
