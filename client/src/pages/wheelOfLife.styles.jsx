@@ -34,12 +34,13 @@ const Title = () => {
 // WhiteBoard
 
 const WhiteBoard = styled.div`
+  overflow: hidden;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   flex-direction: column;
   width: 85%;
-  height: 350px;
+  max-width: 750px;
   background-color: var(--white);
   margin-right: auto;
   margin-left: auto;
