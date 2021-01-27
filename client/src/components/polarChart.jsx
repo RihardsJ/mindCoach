@@ -2,17 +2,6 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import createPolarChartSlices from "../utils/polarChart";
 
-const formData = {
-  money: [1, "green"],
-  friends: [0.3, "yellow"],
-  health: [0.7, "blue"],
-  family: [0.9, "orange"],
-  spirituality: [0.6, "cyan"],
-  love: [1, "red"],
-  career: [0.9, "green"],
-  fun: [1, "sand"],
-};
-
 const PolarChartContainer = styled.div`
   position: relative;
   width: 85%;
@@ -34,7 +23,7 @@ const PolarPieSVG = styled.svg`
   height: auto;
 `;
 
-const PolarChart = () => {
+const PolarChart = ({ formData }) => {
   const [polarChartSlices] = useState(createPolarChartSlices(formData));
 
   useEffect(() => {

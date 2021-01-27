@@ -7,6 +7,7 @@ const RedButton = styled.button`
   color: var(--white);
   background-color: var(--red);
   padding: 0.5em;
+  cursor: pointer;
   border-radius: 10px;
   border-style: none;
   box-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.5),
