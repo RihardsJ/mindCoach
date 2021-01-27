@@ -1,8 +1,8 @@
-import Logo from "../components/logo.jsx";
+import Logo from "../components/logo";
 import { Title, WhiteBoard } from "./wheelOfLife.styles";
 import { PencilButton } from "../components/buttons";
 import PolarChart from "../components/polarChart";
-import WheelForm from "../components/wheelForm.jsx";
+import WheelForm from "../components/wheelForm";
 import { useState } from "react";
 
 const WheelOfLifePage = () => {
