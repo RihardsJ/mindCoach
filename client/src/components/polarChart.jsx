@@ -4,7 +4,9 @@ import createPolarChartSlices from "../utils/polarChart";
 
 const PolarChartContainer = styled.div`
   position: relative;
-  width: 85%;
+  width: 55%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 `;
 
 const CircleSVG = styled.svg`
@@ -21,6 +23,11 @@ const PolarPieSVG = styled.svg`
   transform: rotate(-90deg);
   width: 100%;
   height: auto;
+`;
+
+const Label = styled.text`
+  font-size: 0.5rem;
+  text-shadow: 1px 1px 1px hsl(0, 0%, 20%);
 `;
 
 const PolarChart = ({ formData }) => {
@@ -84,10 +91,42 @@ const PolarChart = ({ formData }) => {
     ));
   };
 
+  const addLabels = () => {
+    const Labels = [];
+
+    const coordinates = {
+      1: { x: 150, y: 0 },
+      2: { x: 200, y: 50 },
+      3: { x: 200, y: 150 },
+      4: { x: 150, y: 200 },
+      5: { x: 10, y: 200 },
+      6: { x: -20, y: 150 },
+      7: { x: -30, y: 50 },
+      8: { x: 30, y: 0 },
+    };
+    let i = 1;
+
+    for (const text in polarChartSlices) {
+      Labels.push(
+        <Label
+          x={coordinates[i].x}
+          y={coordinates[i].y}
+          fill={polarChartSlices[text].colour}
+          key={i}
+        >
+          {text}
+        </Label>
+      );
+      i++;
+    }
+    return Labels;
+  };
+
   return (
     <PolarChartContainer>
-      <CircleSVG viewBox="0 0 200 200" className="circle">
+      <CircleSVG viewBox="0 0 200 200" className="circle" overflow="visible">
         {createCircles()}
+        {addLabels()}
       </CircleSVG>
       {createSliceBorders()}
       <PolarPieSVG viewBox="-1 -1 2 2">{createPath()}</PolarPieSVG>
