@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useRef, useCallback, useImperativeHandle } from "react";
+import WheelOfLifePage from "../pages/wheelOfLife";
 
 const InputNumberContainer = styled.div`
   position: relative;
@@ -36,7 +37,7 @@ const DecrementButton = styled(IncrementButton)`
   transform: rotate(45deg);
 `;
 
-const InputNumber = ({ lifeArea, ref }) => {
+const InputNumber = ({ lifeArea, ref, formData }) => {
   const InputNumberReference = useRef(null);
 
   useImperativeHandle(ref, () => InputNumberReference.current, []);
@@ -68,7 +69,7 @@ const InputNumber = ({ lifeArea, ref }) => {
         min="1"
         max="10"
         required
-        defaultValue="5"
+        defaultValue={formData.formData[lifeArea][0] * 10}
       />
       <IncrementButton onClick={Substract}></IncrementButton>
     </InputNumberContainer>

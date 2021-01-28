@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import createSlicesForPolarChart from "../utils/polarChart";
 import { PencilButton } from "./buttons";
@@ -47,24 +47,41 @@ const Form = styled.form`
 //     Career: [0.5, "green"],
 //     Fun: [0.2, "sand"],
 //   }
+const WheelForm = ({ formData }) => {
+  const InputElements = ({ formData }) => {
+    const data = formData.formData;
+    return Object.keys(data).map((lifeArea, i) => (
+      <FieldSet key={i}>
+        <ColourDot colour={data[lifeArea][1]} />
+        <Label htmlFor={lifeArea}>{lifeArea}</Label>
+        <InputNumber lifeArea={lifeArea} formData={formData} />
+      </FieldSet>
+    ));
+  };
 
-const buildForm = ({ formData }) => {
-  return Object.keys(formData).map((lifeArea, i) => (
-    <FieldSet id={lifeArea} key={i}>
-      <ColourDot colour={formData[lifeArea][1]} />
-      <Label htmlFor={lifeArea}>{lifeArea}</Label>
-      <InputNumber lifeArea={lifeArea} />
-    </FieldSet>
-  ));
-};
+  const updateFormDataAndShowPolarChart = (e) => {
+    e.preventDefault();
+    const data = formData.formData;
 
-const wheelForm = ({ formData }) => {
+    Object.keys(data).forEach((key) => {
+      formData.setFormData((prevData) => ({
+        ...prevData,
+        [key]: [
+          Number((e.target.elements[key].value * 0.1).toFixed(1)),
+          prevData[key][1],
+        ],
+      }));
+    });
+
+    console.log(data);
+  };
+
   return (
-    <Form>
-      {buildForm(formData)}
+    <Form onSubmit={updateFormDataAndShowPolarChart}>
+      <InputElements formData={formData} />
       <PencilButton type="submit">Draw</PencilButton>
     </Form>
   );
 };
 
-export default wheelForm;
+export default WheelForm;

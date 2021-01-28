@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-// Title
-
 const H1 = styled.h1`
   text-align: center;
   font-weight: 100;
@@ -30,8 +28,6 @@ const Title = () => {
     </H1>
   );
 };
-
-// WhiteBoard
 
 const WhiteBoard = styled.div`
   overflow: hidden;
