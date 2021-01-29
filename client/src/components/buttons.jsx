@@ -8,6 +8,7 @@ const RedButton = styled.button`
   background-color: var(--red);
   padding: 0.5em;
   cursor: pointer;
+  margin-bottom: 1rem;
   border-radius: 10px;
   border-style: none;
   box-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.5),
@@ -20,14 +21,23 @@ const Pencil = styled(PencilSVG)`
   right: -10px;
 `;
 
-const PencilButton = ({ children }) => {
+const SubmitButton = () => {
   return (
     <>
-      <RedButton>
-        {children} <Pencil />
+      <RedButton type="submit">
+        Draw <Pencil />
       </RedButton>
     </>
   );
 };
 
-export { PencilButton };
+const ResetButton = styled(RedButton)`
+  margin-top: 3rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.6em;
+  z-index: 10;
+`;
+
+export { SubmitButton, ResetButton };

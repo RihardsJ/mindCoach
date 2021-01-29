@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { useRef, useCallback, useImperativeHandle } from "react";
-import WheelOfLifePage from "../pages/wheelOfLife";
 
 const InputNumberContainer = styled.div`
   position: relative;
