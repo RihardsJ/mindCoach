@@ -1,6 +1,5 @@
 import Logo from "../components/logo";
 import { Title, WhiteBoard } from "./wheelOfLife.styles";
-import { PencilButton } from "../components/buttons";
 import PolarChart from "../components/polarChart";
 import WheelForm from "../components/wheelForm";
 import { useState } from "react";
@@ -22,9 +21,8 @@ const WheelOfLifePage = () => {
       <Logo />
       <Title />
       <WhiteBoard>
-        {/* <WheelForm formData={{ formData, setFormData }} /> */}
-        <PolarChart formData={formData} />
-        <PencilButton>Reset</PencilButton>
+        <WheelForm formData={{ formData, setFormData }} />
+        {/* <PolarChart formData={formData} /> */}
       </WhiteBoard>
     </>
   );
