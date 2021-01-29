@@ -31,7 +31,9 @@ const Label = styled.text`
 `;
 
 const PolarChart = ({ formData }) => {
-  const [polarChartSlices] = useState(createPolarChartSlices(formData));
+  const [polarChartSlices] = useState(
+    createPolarChartSlices(formData.formData)
+  );
 
   useEffect(() => {
     console.log(polarChartSlices);

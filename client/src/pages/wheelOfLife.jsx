@@ -1,8 +1,8 @@
 import Logo from "../components/logo";
 import { Title, WhiteBoard } from "./wheelOfLife.styles";
-import PolarChart from "../components/polarChart";
-import WheelForm from "../components/wheelForm";
+import WhiteBoardComponents from "../components/WhiteBoardComponents.jsx";
 import { useState } from "react";
+import { SwitchButton } from "../components/buttons.jsx";
 
 const WheelOfLifePage = () => {
   const [formData, setFormData] = useState({
@@ -16,13 +16,23 @@ const WheelOfLifePage = () => {
     Fun: [1, "orange"],
   });
 
+  const [component, setComponentTo] = useState("WheelForm");
+
   return (
     <>
       <Logo />
       <Title />
       <WhiteBoard>
-        <WheelForm formData={{ formData, setFormData }} />
-        {/* <PolarChart formData={formData} /> */}
+        <WhiteBoardComponents
+          formData={{ formData, setFormData }}
+          component={component}
+        />
+        <SwitchButton onClick={() => setComponentTo("WheelForm")}>
+          Form
+        </SwitchButton>
+        <SwitchButton onClick={() => setComponentTo("PolarChart")}>
+          Wheel of Life
+        </SwitchButton>
       </WhiteBoard>
     </>
   );

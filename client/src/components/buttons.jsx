@@ -35,4 +35,8 @@ const ResetButton = styled(GreenButton)`
   background-color: var(--red);
 `;
 
-export { SubmitButton, ResetButton };
+const SwitchButton = styled(GreenButton)`
+  background-color: var(--black);
+`;
+
+export { SubmitButton, ResetButton, SwitchButton };
