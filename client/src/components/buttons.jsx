@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { ReactComponent as PencilSVG } from "../assets/pencil.svg";
 
-const GreenButton = styled.button`
+const RedButton = styled.button`
   position: relative;
   font-size: 1em;
   color: var(--white);
-  background-color: var(--lime);
+  background-color: var(--red);
   padding: 0.5em;
   cursor: pointer;
   margin-bottom: 1rem;
@@ -21,22 +21,23 @@ const Pencil = styled(PencilSVG)`
   right: -10px;
 `;
 
-const SubmitButton = ({ children }) => {
+const SubmitButton = () => {
   return (
     <>
-      <GreenButton>
-        {children} <Pencil />
-      </GreenButton>
+      <RedButton type="submit">
+        Draw <Pencil />
+      </RedButton>
     </>
   );
 };
 
-const ResetButton = styled(GreenButton)`
-  background-color: var(--red);
+const ResetButton = styled(RedButton)`
+  margin-top: 3rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.6em;
+  z-index: 10;
 `;
 
-const SwitchButton = styled(GreenButton)`
-  background-color: var(--black);
-`;
-
-export { SubmitButton, ResetButton, SwitchButton };
+export { SubmitButton, ResetButton };

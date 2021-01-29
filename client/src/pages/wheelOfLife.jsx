@@ -1,22 +1,21 @@
 import Logo from "../components/logo";
 import { Title, WhiteBoard } from "./wheelOfLife.styles";
-import WhiteBoardComponents from "../components/WhiteBoardComponents.jsx";
+import WhiteBoardComponents from "../components/DynamicComponents.jsx";
 import { useState } from "react";
-import { SwitchButton } from "../components/buttons.jsx";
 
 const WheelOfLifePage = () => {
   const [formData, setFormData] = useState({
-    Money: [0.2, "green"],
-    Friends: [0.3, "yellow"],
-    Health: [0.4, "blue"],
+    Money: [0.5, "green"],
+    Friends: [0.5, "yellow"],
+    Health: [0.5, "blue"],
     Family: [0.5, "red"],
-    Spirituality: [0.6, "cyan"],
-    Love: [0.7, "red"],
-    Career: [0.8, "green"],
-    Fun: [1, "orange"],
+    Spirituality: [0.5, "cyan"],
+    Love: [0.5, "red"],
+    Career: [0.5, "green"],
+    Fun: [0.5, "orange"],
   });
 
-  const [component, setComponentTo] = useState("WheelForm");
+  const [componentName, setComponentName] = useState("WheelForm");
 
   return (
     <>
@@ -25,14 +24,8 @@ const WheelOfLifePage = () => {
       <WhiteBoard>
         <WhiteBoardComponents
           formData={{ formData, setFormData }}
-          component={component}
+          component={{ componentName, setComponentName }}
         />
-        <SwitchButton onClick={() => setComponentTo("WheelForm")}>
-          Form
-        </SwitchButton>
-        <SwitchButton onClick={() => setComponentTo("PolarChart")}>
-          Wheel of Life
-        </SwitchButton>
       </WhiteBoard>
     </>
   );

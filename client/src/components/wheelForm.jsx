@@ -1,7 +1,5 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
-import createSlicesForPolarChart from "../utils/polarChart";
-import { SubmitButton, ResetButton } from "./buttons";
+import { SubmitButton } from "./buttons";
 import InputNumber from "./inputNumber";
 
 const FieldSet = styled.fieldset`
@@ -48,7 +46,7 @@ const Form = styled.form`
 //     Fun: [0.2, "sand"],
 //   }
 
-const WheelForm = ({ formData }) => {
+const WheelForm = ({ formData, component }) => {
   const InputElements = ({ formData }) => {
     const data = formData.formData;
     return Object.keys(data).map((lifeArea, i) => (
@@ -73,15 +71,14 @@ const WheelForm = ({ formData }) => {
         ],
       }));
     });
-
+    component.setComponentName("PolarChart");
     console.log(data);
   };
 
   return (
     <Form onSubmit={updateFormDataAndShowPolarChart}>
       <InputElements formData={formData} />
-      <ResetButton>Reset</ResetButton>
-      <SubmitButton type="submit">Draw</SubmitButton>
+      <SubmitButton />
     </Form>
   );
 };

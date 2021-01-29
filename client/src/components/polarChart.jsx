@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import createPolarChartSlices from "../utils/polarChart";
+import { ResetButton } from "./buttons.jsx";
 
 const PolarChartContainer = styled.div`
   position: relative;
@@ -30,7 +31,7 @@ const Label = styled.text`
   text-shadow: 1px 1px 1px hsl(0, 0%, 20%);
 `;
 
-const PolarChart = ({ formData }) => {
+const PolarChart = ({ formData, component }) => {
   const [polarChartSlices] = useState(
     createPolarChartSlices(formData.formData)
   );
@@ -132,6 +133,9 @@ const PolarChart = ({ formData }) => {
       </CircleSVG>
       {createSliceBorders()}
       <PolarPieSVG viewBox="-1 -1 2 2">{createPath()}</PolarPieSVG>
+      <ResetButton onClick={() => component.setComponentName("WheelForm")}>
+        Reset my score
+      </ResetButton>
     </PolarChartContainer>
   );
 };
