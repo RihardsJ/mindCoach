@@ -133,9 +133,7 @@ const PolarChart = ({ formData, component }) => {
       </CircleSVG>
       {createSliceBorders()}
       <PolarPieSVG viewBox="-1 -1 2 2">{createPath()}</PolarPieSVG>
-      <ResetButton onClick={() => component.setComponentName("WheelForm")}>
-        Reset my score
-      </ResetButton>
+      <ResetButton component={component} />
     </PolarChartContainer>
   );
 };

@@ -16,24 +16,34 @@ const Input = styled.input`
 `;
 
 const IncrementButton = styled.button`
+  outline: none;
   cursor: pointer;
+  padding: 0;
   background-color: transparent;
   position: absolute;
-  width: 20px;
-  height: 20px;
-  left: 40px;
-  top: 20%;
+  width: 12px;
+  height: 12px;
+  left: 35px;
+  top: 12px;
   border-style: solid;
-  border-width: 2px 2px 0 0;
+  border-width: 1px 1px 0 0;
   border-color: var(--black);
   transform: rotate(45deg);
+
+  &:hover {
+    left: 38px;
+  }
 `;
 
 const DecrementButton = styled(IncrementButton)`
-  left: -30px;
-  top: 20%;
-  border-width: 0 0 2px 2px;
+  left: -15px;
+  top: 12px;
+  border-width: 0 0 1px 1px;
   transform: rotate(45deg);
+
+  &:hover {
+    left: -18px;
+  }
 `;
 
 const InputNumber = ({ lifeArea, ref, formData }) => {
@@ -68,6 +78,7 @@ const InputNumber = ({ lifeArea, ref, formData }) => {
         min="1"
         max="10"
         required
+        autoComplete="off"
         defaultValue={formData.formData[lifeArea][0] * 10}
       />
       <IncrementButton onClick={Substract}></IncrementButton>
