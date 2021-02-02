@@ -32,19 +32,22 @@ const drawing = keyframes`
   }
 `;
 
-const RedButton = styled.button`
-  position: relative;
-  font-size: 1em;
-  color: var(--white);
-  background-color: var(--red);
-  padding: 0.5em;
+const Button = styled.button`
   cursor: pointer;
   outline: none;
+  font-size: 1em;
+  padding: 0.5em;
   margin-bottom: 1rem;
   border-radius: 10px;
   border-style: none;
   box-shadow: 1px 1px 1px hsla(0, 0%, 0%, 0.5),
     -1px -1px 1px hsla(0, 100%, 100%, 0.25);
+`;
+
+const RedButton = styled(Button)`
+  position: relative;
+  color: var(--white);
+  background-color: var(--red);
 
   &:hover :last-child {
     transform-origin: center;
@@ -99,6 +102,12 @@ const ResetButton = ({ component }) => {
       </RedResetButton>
     </>
   );
+};
+
+const WhiteClipBardButton = styled.button``;
+
+const ClipBoardButton = () => {
+  return <WhiteClipBardButton />;
 };
 
 export { SubmitButton, ResetButton };
