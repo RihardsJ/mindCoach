@@ -51,7 +51,7 @@ const InputNumber = ({ lifeArea, ref, formData }) => {
 
   useImperativeHandle(ref, () => InputNumberReference.current, []);
 
-  const Add = useCallback(
+  const Substract = useCallback(
     (e) => {
       e.preventDefault();
       InputNumberReference.current.stepDown();
@@ -59,7 +59,7 @@ const InputNumber = ({ lifeArea, ref, formData }) => {
     [InputNumberReference]
   );
 
-  const Substract = useCallback(
+  const Add = useCallback(
     (e) => {
       e.preventDefault();
       InputNumberReference.current.stepUp();
@@ -69,7 +69,7 @@ const InputNumber = ({ lifeArea, ref, formData }) => {
 
   return (
     <InputNumberContainer>
-      <DecrementButton onClick={Add}></DecrementButton>
+      <DecrementButton onClick={Substract}></DecrementButton>
       <Input
         ref={InputNumberReference}
         type="number"
@@ -81,7 +81,7 @@ const InputNumber = ({ lifeArea, ref, formData }) => {
         autoComplete="off"
         defaultValue={formData.formData[lifeArea][0] * 10}
       />
-      <IncrementButton onClick={Substract}></IncrementButton>
+      <IncrementButton onClick={Add}></IncrementButton>
     </InputNumberContainer>
   );
 };
